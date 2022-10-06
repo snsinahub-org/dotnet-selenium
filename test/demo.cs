@@ -47,12 +47,13 @@ namespace Demo.SeleniumTests
                 driver.FindElement(By.LinkText("Privacy")).Click();                
                 var cssMenu = driver.FindElement(By.LinkText("Privacy")).GetAttribute("class");
 
-                Console.WriteLine("CSS ---> " + cssMenu);
+                Console.WriteLine("CSS MENU ---> " + cssMenu);
                 // Get Started section is a multi-step wizard
                 // The following sections will find the visible next step button until there's no next step button left
                 
                 // verify the title is the expected value "Next steps"
-                Assert.AreEqual(cssMenu, "not-privacy");
+//                 Assert.AreEqual(cssMenu, "not-privacy");
+                Assert.AreEqual(cssMenu, "nav-link text-dark");
                 
             }
         }
