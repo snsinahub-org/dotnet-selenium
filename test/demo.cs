@@ -50,7 +50,7 @@ namespace Demo.SeleniumTests
                 options.AddArgument("headless");
             }
 
-            return new ChromeDriver("/opt/projects/test/ws/test", options);
+            return new ChromeDriver("/tmp", options);
         }
     }
 }
