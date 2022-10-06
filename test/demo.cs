@@ -12,7 +12,7 @@ namespace Demo.SeleniumTests
         public TestContext TestContext { get; set; }
 
         [TestMethod]
-        public void TestGetStarted()
+        public void TestLink1()
         {
             // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
@@ -31,7 +31,27 @@ namespace Demo.SeleniumTests
                 
                 // verify the title is the expected value "Next steps"
                 Assert.AreEqual(css, "privacy");
+            }
+        }
+        
+        [TestMethod]
+        public void TestLink2()
+        {
+            // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
+            // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
+            using (var driver = GetDriver())
+            {
+                //Navigate to DotNet website
+                driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
+                //Click the Get Started button
+                driver.FindElement(By.LinkText("Privacy")).Click();                
+                var cssMenu = driver.FindElement(By.LinkText("Privacy")).GetAttribute("class");
+
+                Console.WriteLine("CSS ---> " + cssMenu);
+                // Get Started section is a multi-step wizard
+                // The following sections will find the visible next step button until there's no next step button left
                 
+                // verify the title is the expected value "Next steps"
                 Assert.AreEqual(cssMenu, "not-privacy");
                 
             }
