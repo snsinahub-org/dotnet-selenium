@@ -30,7 +30,7 @@ namespace Demo.SeleniumTests
                 
                 // verify the title is the expected value "Next steps"
                 Assert.AreEqual(css, "privacy");
-                Assert.AreEqual(css, "non-privacy");
+                
             }
         }
 
