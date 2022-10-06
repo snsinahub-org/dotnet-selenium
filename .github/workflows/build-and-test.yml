@@ -12,7 +12,9 @@ jobs:
         
       - name: copy chrome driver to tmp
         run: |
-          cp test/chromerdriver /tmp
+          ls test
+          cp test/chromedriver /tmp
+          chmod 744 /tmp/chromedriver
           
       - name: install dotnet
         uses: actions/setup-dotnet@v3
