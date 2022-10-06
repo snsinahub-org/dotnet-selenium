@@ -10,3 +10,6 @@
 
 `cd test/`
 `dotnet test -s .runsettings`
+
+## Links
+- [Selenium driver](https://www.selenium.dev/documentation/webdriver/getting_started/install_drivers/)
