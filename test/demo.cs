@@ -23,6 +23,7 @@ namespace Demo.SeleniumTests
                 //Click the Get Started button
                 driver.FindElement(By.LinkText("Privacy Policy")).Click();
                 var css = driver.FindElement(By.LinkText("Privacy Policy")).GetAttribute("class");
+                var cssMenu = driver.FindElement(By.LinkText("Privacy")).GetAttribute("class");
 
                 Console.WriteLine("CSS ---> " + css);
                 // Get Started section is a multi-step wizard
@@ -30,6 +31,8 @@ namespace Demo.SeleniumTests
                 
                 // verify the title is the expected value "Next steps"
                 Assert.AreEqual(css, "privacy");
+                
+                Assert.AreEqual(cssMenu, "not-privacy");
                 
             }
         }
