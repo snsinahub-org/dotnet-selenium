@@ -1,0 +1,30 @@
+name: build and test
+on:
+  workflow_dispatch:
+  
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        
+      - name: copy chrome driver to tmp
+        run: |
+          cp test/chromerdriver /tmp
+          
+      - name: install dotnet
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x' 
+          
+      - name: build and run
+        run: |
+          dotnet build
+          dotnet run
+          
+      - name: run test
+        run: |
+          cd test
+          dotnet test -s .runsettings
