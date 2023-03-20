@@ -1,0 +1,25 @@
+name: convert to docx
+
+on: 
+  workflow_dispatch:
+    inputs:
+      input_file:
+        required: true
+      output_file:
+        required: true
+
+jobs:
+  convert_via_pandoc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - uses: docker://pandoc/core:2.9
+        with:
+          args: --output "${{ github.event.inputs.output_file }}" -f markdown -t docx "${{ github.event.inputs.input_file }}"
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: docx
+          path: ${{ github.event.inputs.output_file }}
+          
