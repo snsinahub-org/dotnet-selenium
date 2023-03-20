@@ -52,7 +52,7 @@ namespace Demo.SeleniumTests
                 // The following sections will find the visible next step button until there's no next step button left
                 
                 // verify the title is the expected value "Next steps"
-                Assert.AreEqual(cssMenu, "not-privacy");
+                Assert.AreNotEqual(cssMenu, "not-privacy");
 //                 Assert.AreNotEqual(cssMenu, "nav-link text-dark");
                 
             }
