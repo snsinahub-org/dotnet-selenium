@@ -53,7 +53,7 @@ namespace Demo.SeleniumTests
                 
                 // verify the title is the expected value "Next steps"
                 Assert.AreEqual(cssMenu, "not-privacy");
-//                 Assert.AreEqual(cssMenu, "nav-link text-dark");
+//                 Assert.AreNotEqual(cssMenu, "nav-link text-dark");
                 
             }
         }
