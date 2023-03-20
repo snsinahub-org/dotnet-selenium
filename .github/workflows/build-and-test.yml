@@ -45,9 +45,7 @@ jobs:
 
       - name: prepare
         run: |         
-          dotnet publish -c Release -o myapp4          
-          cp myapp4/t.exe myapp4/wwwroot/lib
-          cp myapp4/t.exe myapp4\wwwroot\lib\bootstrap\dist\
+          dotnet publish -c Release -o myapp4                    
           zip -r myapp4.zip myapp4/*
       - name: upload artifact
         uses: actions/upload-artifact@v3
