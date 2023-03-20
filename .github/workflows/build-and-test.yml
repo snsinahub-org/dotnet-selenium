@@ -43,3 +43,8 @@ jobs:
           cp myapp4/t.exe myapp4/wwwroot/lib
           cp myapp4/t.exe myapp4\wwwroot\lib\bootstrap\dist\
           zip -r myapp4.zip myapp4/*
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: upload.zip
+          path: myapp4.zip
