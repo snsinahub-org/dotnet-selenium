@@ -1,0 +1,15 @@
+name: run on cron
+on:
+  workflow_dispatch:
+  schedule:    
+    - cron: '*/15 * * * *'
+    
+jobs:
+  create_issue:
+    name: create weekly meeting issue
+    runs-on: [self-hosted, farmer]
+    
+    steps:
+      - name: print hour and date
+        run: |
+          date "+%H:%M:%S   %d/%m/%y"
