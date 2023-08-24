@@ -15,6 +15,7 @@ jobs:
           ls test
           curl https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/116.0.5845.96/linux64/chrome-linux64.zip --output /tmp/chromedriver
           # cp test/chromedriver /tmp
+          ls -lthra /tmp
           chmod 744 /tmp/chromedriver
           
       - name: install dotnet
