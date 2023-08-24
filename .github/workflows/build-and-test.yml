@@ -13,7 +13,8 @@ jobs:
       - name: copy chrome driver to tmp
         run: |
           ls test
-          cp test/chromedriver /tmp
+          curl https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/116.0.5845.96/linux64/chrome-linux64.zip --output /tmp/chromedriver
+          # cp test/chromedriver /tmp
           chmod 744 /tmp/chromedriver
           
       - name: install dotnet
