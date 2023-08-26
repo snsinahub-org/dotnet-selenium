@@ -51,19 +51,9 @@ namespace ws.SeleniumTests
                 var cssMenu = driver.FindElement(By.LinkText("Privacy")).GetAttribute("class");
 
                 Console.WriteLine("CSS ---> " + css);
-                // Get Started section is a multi-step wizard
-                // The following sections will find the visible next step button until there's no next step button left
                 
-                // verify the title is the expected value "Next steps"
                 Assert.AreEqual(css, "privacy");
-                // if (Assert.AreEqual(css, "privacy"))
-                // {
-                //     test.Log(Status.Pass, "Page title verified");
-                // }
-                // else
-                // {
-                //     test.Log(Status.Fail, "Page title not verified");
-                // }
+                
             }
         }
         
@@ -83,20 +73,32 @@ namespace ws.SeleniumTests
                 var cssMenu = driver.FindElement(By.LinkText("Privacy")).GetAttribute("class");
 
                 Console.WriteLine("CSS MENU ---> " + cssMenu);
-                // Get Started section is a multi-step wizard
-                // The following sections will find the visible next step button until there's no next step button left
                 
-                // verify the title is the expected value "Next steps"
                 Assert.AreNotEqual(cssMenu, "not-privacy");
-                // if (Assert.AreNotEqual(cssMenu, "not-privacy"))
-                // {
-                //     test.Log(Status.Pass, "Page title verified");
-                // }
-                // else
-                // {
-                //     test.Log(Status.Fail, "Page title not verified");
-                // }
-//                 Assert.AreNotEqual(cssMenu, "nav-link text-dark");
+    
+                
+            }
+        }
+
+        [TestMethod]
+        public void TestLink3()
+        {
+            // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
+            // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
+            using (var driver = GetDriver())
+            {
+                test = extent.CreateTest(TestContext.TestName);
+                // extent.LogInfo("TestLink2");
+                //Navigate to DotNet website
+                driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
+                //Click the Get Started button
+                driver.FindElement(By.LinkText("Privacy Policy")).Click();
+                // with selenium check nav background color
+                var bg = driver.FindElement(By.class("navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3").GetAttribute("background-color");
+
+                Console.WriteLine("BACKGROUND ---> " + bg);
+                
+                Assert.AreEqual(bg, "blue");
                 
             }
         }
@@ -125,7 +127,7 @@ namespace ws.SeleniumTests
         public void endReporting()
         {
             Console.WriteLine("TestCleanup");
-            extent.Flush();
+            // extent.Flush();
 
         }
     }
