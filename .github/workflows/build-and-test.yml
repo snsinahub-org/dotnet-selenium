@@ -38,19 +38,19 @@ jobs:
           dotnet restore
           dotnet build --configuration Release
 
-  build_and_deploy:
-    runs-on: ubuntu-latest
+  # build_and_deploy:
+  #   runs-on: ubuntu-latest
     
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3        
+  #   steps:
+  #     - name: checkout
+  #       uses: actions/checkout@v3        
 
-      - name: prepare
-        run: |         
-          dotnet publish -c Release -o myapp4                    
-          zip -r myapp4.zip myapp4/*
-      - name: upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: upload.zip
-          path: myapp4.zip
+  #     - name: prepare
+  #       run: |         
+  #         dotnet publish -c Release -o myapp4                    
+  #         zip -r myapp4.zip myapp4/*
+  #     - name: upload artifact
+  #       uses: actions/upload-artifact@v3
+  #       with:
+  #         name: upload.zip
+  #         path: myapp4.zip
