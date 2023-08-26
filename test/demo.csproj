@@ -4,7 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>dotnet_selenium</RootNamespace>
+    <RootNamespace>Demo.SeleniumTests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
