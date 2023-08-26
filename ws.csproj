@@ -7,10 +7,7 @@
     <RootNamespace>dotnet_selenium</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Include="test/.runsettings"> 
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+  <ItemGroup>    
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.1" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.1.1" />
     <PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
@@ -27,7 +24,5 @@
         
     
   </ItemGroup>
-  <Target Name="dlfkljd" AfterTargets="Build">  
-    <Message Text="Runtime ID = $(RuntimeIdentifier)" />   
-  </Target> 
+ 
 </Project>

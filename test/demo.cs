@@ -6,7 +6,7 @@ using System;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 
-namespace Demo.SeleniumTests
+namespace ws.SeleniumTests
 {
     [TestClass]
     public class DotNetSiteTests
