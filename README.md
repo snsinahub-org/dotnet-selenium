@@ -29,6 +29,7 @@ dotnet add package Selenium.WebDriver
 dotnet add package MSTest.TestFramework
 dotnet add package MSTest.TestAdapter
 dotnet add package Microsoft.NET.Test.Sdk
+dotnet add package ExtentReports --version 4.1.0
 ```
 
 ## Web Browser dependencies

@@ -3,6 +3,8 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.Linq;
 using System;
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
 
 namespace Demo.SeleniumTests
 {
@@ -10,6 +12,25 @@ namespace Demo.SeleniumTests
     public class DotNetSiteTests
     {
         public TestContext TestContext { get; set; }
+        private ExtentReports extent;
+        private ExtentTest test;
+
+        [OneTimeSetUp]
+        public void Setup()
+        {
+            // Initialize ExtentReports
+            extent = new ExtentReports();
+            var htmlReporter = new ExtentHtmlReporter("extent.html");
+            extent.AttachReporter(htmlReporter);
+
+        }
+
+        [SetUp]
+        public void BeforeTest()
+        {
+            // Start ExtentTest
+            test = extent.CreateTest(TestContext.CurrentContext.Test.Name);
+        }
 
         [TestMethod]
         public void TestLink1()
