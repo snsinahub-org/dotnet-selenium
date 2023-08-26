@@ -16,7 +16,7 @@ namespace ws.SeleniumTests
         private ExtentTest? test;
 
         
-        
+        [TestInitialize]
         public void Setup()
         {
             Console.WriteLine("Setup");
@@ -26,7 +26,7 @@ namespace ws.SeleniumTests
             var htmlReporter = new ExtentHtmlReporter("/tmp/results/context.html");
             extent.AttachReporter(htmlReporter);
 
-            return extent;
+            
             
         }
 
@@ -41,7 +41,7 @@ namespace ws.SeleniumTests
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
             using (var driver = GetDriver())
             {
-                test = setup().CreateTest(TestContext.TestName);
+                test = extent.CreateTest(TestContext.TestName);
                 //Navigate to DotNet website
                 driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
                 //Click the Get Started button
@@ -73,7 +73,7 @@ namespace ws.SeleniumTests
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
             using (var driver = GetDriver())
             {
-                test = setup().CreateTest(TestContext.TestName);
+                test = extent.CreateTest(TestContext.TestName);
                 //Navigate to DotNet website
                 driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
                 //Click the Get Started button
