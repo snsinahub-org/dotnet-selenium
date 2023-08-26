@@ -86,7 +86,7 @@ namespace ws.SeleniumTests
                 
                 // verify the title is the expected value "Next steps"
                 // Assert.AreNotEqual(cssMenu, "not-privacy");
-                if Assert.AreNotEqual(cssMenu, "not-privacy"))
+                if (Assert.AreNotEqual(cssMenu, "not-privacy"))
                 {
                     test.Log(Status.Pass, "Page title verified");
                 }
