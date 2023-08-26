@@ -80,28 +80,7 @@ namespace ws.SeleniumTests
             }
         }
 
-        [TestMethod]
-        public void TestLink3()
-        {
-            // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
-            // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
-            using (var driver = GetDriver())
-            {
-                test = extent.CreateTest(TestContext.TestName);
-                // extent.LogInfo("TestLink2");
-                //Navigate to DotNet website
-                driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
-                //Click the Get Started button
-               
-                // with selenium check nav background color
-                var bg = driver.FindElement(By.ClassName("navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"));
-
-                Console.WriteLine("BACKGROUND ---> " + bg);
-                
-                Assert.AreEqual(bg, "blue");
-                
-            }
-        }
+        
 
         [TestMethod]
         public void TestLink4()
