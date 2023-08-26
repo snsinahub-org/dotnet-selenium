@@ -94,7 +94,7 @@ namespace ws.SeleniumTests
                 //Click the Get Started button
                 driver.FindElement(By.LinkText("Privacy Policy")).Click();
                 // with selenium check nav background color
-                var bg = driver.FindElement(By.class("navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3").GetAttribute("background-color");
+                var bg = driver.FindElement(By.class("navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3").GetAttribute("background-color"));
 
                 Console.WriteLine("BACKGROUND ---> " + bg);
                 
