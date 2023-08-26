@@ -39,13 +39,18 @@ jobs:
           tar -czvf test-results.tar.gz TestResults
           
           cp test-results.tar.gz ../
-          
+
+          echo "results in tmp folder"
+          ls -lthra /tmp/results
+          tar -czvf /tmp/results.tar.gz /tmp/results
+          cp /tmp/results.tar.gz ../
+
       
       - name: upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: tmp-results
-          path: /tmp/results
+          path: results.tar.gz
 
       - name: upload artifact
         uses: actions/upload-artifact@v3
