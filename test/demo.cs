@@ -11,20 +11,23 @@ namespace ws.SeleniumTests
     [TestClass]
     public class DotNetSiteTests
     {
-        public TestContext TestContext { get; set; }
-        private ExtentReports extent;
-        private ExtentTest test;
+        public TestContext? TestContext { get; set; }
+        private ExtentReports? extent = new ExtentReports();
+        private ExtentTest? test;
 
         
-        [TestInitialize]
+        
         public void Setup()
         {
             Console.WriteLine("Setup");
             // Initialize ExtentReports
-            extent = new ExtentReports();
-            var htmlReporter = new ExtentHtmlReporter("/tmp/extent.html");
+            Directory.CreateDirectory("/tmp/results");
+            
+            var htmlReporter = new ExtentHtmlReporter("/tmp/results/context.html");
             extent.AttachReporter(htmlReporter);
 
+            return extent;
+            
         }
 
         
@@ -38,7 +41,7 @@ namespace ws.SeleniumTests
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
             using (var driver = GetDriver())
             {
-                 test = extent.CreateTest(TestContext.TestName);
+                test = setup().CreateTest(TestContext.TestName);
                 //Navigate to DotNet website
                 driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
                 //Click the Get Started button
@@ -51,7 +54,15 @@ namespace ws.SeleniumTests
                 // The following sections will find the visible next step button until there's no next step button left
                 
                 // verify the title is the expected value "Next steps"
-                Assert.AreEqual(css, "privacy");
+                // Assert.AreEqual(css, "privacy");
+                if (Assert.AreEqual(css, "privacy"))
+                {
+                    test.Log(Status.Pass, "Page title verified");
+                }
+                else
+                {
+                    test.Log(Status.Fail, "Page title not verified");
+                }
             }
         }
         
@@ -62,7 +73,7 @@ namespace ws.SeleniumTests
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
             using (var driver = GetDriver())
             {
-                 test = extent.CreateTest(TestContext.TestName);
+                test = setup().CreateTest(TestContext.TestName);
                 //Navigate to DotNet website
                 driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
                 //Click the Get Started button
@@ -74,7 +85,15 @@ namespace ws.SeleniumTests
                 // The following sections will find the visible next step button until there's no next step button left
                 
                 // verify the title is the expected value "Next steps"
-                Assert.AreNotEqual(cssMenu, "not-privacy");
+                // Assert.AreNotEqual(cssMenu, "not-privacy");
+                if Assert.AreNotEqual(cssMenu, "not-privacy"))
+                {
+                    test.Log(Status.Pass, "Page title verified");
+                }
+                else
+                {
+                    test.Log(Status.Fail, "Page title not verified");
+                }
 //                 Assert.AreNotEqual(cssMenu, "nav-link text-dark");
                 
             }
@@ -98,6 +117,14 @@ namespace ws.SeleniumTests
             }
 
             return new ChromeDriver("/tmp", options);
+        }
+
+        [TestCleanup]
+        public static void endReporting()
+        {
+            extent.LogScreenShot(Status.Info, "Test Screenshot");
+            extent.Flush();
+
         }
     }
 }
