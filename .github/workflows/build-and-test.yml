@@ -39,14 +39,13 @@ jobs:
           tar -czvf test-results.tar.gz TestResults
           
           cp test-results.tar.gz ../
-          cd /tmp
-          tar -xvf results.tar.gz results
+          
       
       - name: upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: test-results.tar.gz
-          path: /tmp/results.tar.gz
+          path: results.tar.gz
       
       # - name: build
       #   run: |
