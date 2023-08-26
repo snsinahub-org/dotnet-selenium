@@ -30,6 +30,7 @@ jobs:
           
       - name: run test
         run: |
+          curl https://localhost:7262/
           cd test
           dotnet test -s .runsettings
           ls -lthra
