@@ -29,7 +29,7 @@ namespace Demo.SeleniumTests
         public void BeforeTest()
         {
             // Start ExtentTest
-            test = extent.CreateTest(TestExecutionContext.CurrentContext.CurrentTest.Properties);
+            test = extent.CreateTest(TestContext.TestName);
         }
 
         [TestMethod]
