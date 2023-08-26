@@ -19,6 +19,7 @@ namespace Demo.SeleniumTests
         [TestInitialize]
         public void Setup()
         {
+            Console.WriteLine("Setup");
             // Initialize ExtentReports
             extent = new ExtentReports();
             var htmlReporter = new ExtentHtmlReporter("extent.html");
