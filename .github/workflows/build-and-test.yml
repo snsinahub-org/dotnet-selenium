@@ -50,7 +50,7 @@ jobs:
           ls -lthra /tmp/results
           tar -czvf /tmp/results.tar.gz /tmp/results
           cp /tmp/results.tar.gz ../
-        resume-on-error: true
+        continue-on-error: true
       
       - name: upload artifact
         uses: actions/upload-artifact@v3
