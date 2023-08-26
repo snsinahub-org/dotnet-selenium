@@ -23,7 +23,7 @@ namespace ws.SeleniumTests
             // Initialize ExtentReports
             Directory.CreateDirectory("/tmp/results");
             
-            var htmlReporter = new ExtentHtmlReporter("/tmp/results/context.html");
+            var htmlReporter = new ExtentHtmlReporter("/tmp/results");
             extent.AttachReporter(htmlReporter);
 
             
@@ -54,15 +54,15 @@ namespace ws.SeleniumTests
                 // The following sections will find the visible next step button until there's no next step button left
                 
                 // verify the title is the expected value "Next steps"
-                // Assert.AreEqual(css, "privacy");
-                if (Assert.AreEqual(css, "privacy"))
-                {
-                    test.Log(Status.Pass, "Page title verified");
-                }
-                else
-                {
-                    test.Log(Status.Fail, "Page title not verified");
-                }
+                Assert.AreEqual(css, "privacy");
+                // if (Assert.AreEqual(css, "privacy"))
+                // {
+                //     test.Log(Status.Pass, "Page title verified");
+                // }
+                // else
+                // {
+                //     test.Log(Status.Fail, "Page title not verified");
+                // }
             }
         }
         
@@ -85,15 +85,15 @@ namespace ws.SeleniumTests
                 // The following sections will find the visible next step button until there's no next step button left
                 
                 // verify the title is the expected value "Next steps"
-                // Assert.AreNotEqual(cssMenu, "not-privacy");
-                if (Assert.AreNotEqual(cssMenu, "not-privacy"))
-                {
-                    test.Log(Status.Pass, "Page title verified");
-                }
-                else
-                {
-                    test.Log(Status.Fail, "Page title not verified");
-                }
+                Assert.AreNotEqual(cssMenu, "not-privacy");
+                // if (Assert.AreNotEqual(cssMenu, "not-privacy"))
+                // {
+                //     test.Log(Status.Pass, "Page title verified");
+                // }
+                // else
+                // {
+                //     test.Log(Status.Fail, "Page title not verified");
+                // }
 //                 Assert.AreNotEqual(cssMenu, "nav-link text-dark");
                 
             }
