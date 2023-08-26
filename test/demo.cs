@@ -15,7 +15,7 @@ namespace Demo.SeleniumTests
         private ExtentReports extent;
         private ExtentTest test;
 
-        [ClassInitialize]
+        
         public void Setup()
         {
             // Initialize ExtentReports
@@ -25,7 +25,7 @@ namespace Demo.SeleniumTests
 
         }
 
-        [SetUp]
+        
         public void BeforeTest()
         {
             // Start ExtentTest
