@@ -92,9 +92,9 @@ namespace ws.SeleniumTests
                 //Navigate to DotNet website
                 driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
                 //Click the Get Started button
-                driver.FindElement(By.LinkText("Privacy Policy")).Click();
+               
                 // with selenium check nav background color
-                var bg = driver.FindElement(By.class("navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3").GetAttribute("background-color"));
+                var bg = driver.FindElement(By.ClassName("navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3").GetAttribute("background-color"));
 
                 Console.WriteLine("BACKGROUND ---> " + bg);
                 
@@ -102,6 +102,53 @@ namespace ws.SeleniumTests
                 
             }
         }
+
+        [TestMethod]
+        public void TestLink4()
+        {
+            // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
+            // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
+            using (var driver = GetDriver())
+            {
+                test = extent.CreateTest(TestContext.TestName);
+                // extent.LogInfo("TestLink2");
+                //Navigate to DotNet website
+                driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
+                //Click the Get Started button
+                // test url link if correct after click find element by id
+
+
+                driver.FindElement(By.Id("redirect")).Click();                
+                
+                Assert.AreEqual(driver.Url, "https://dotnet.microsoft.com/");
+    
+                
+            }
+        }
+
+        [TestMethod]
+        public void TestLink5()
+        {
+            // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
+            // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
+            using (var driver = GetDriver())
+            {
+                test = extent.CreateTest(TestContext.TestName);
+                // extent.LogInfo("TestLink2");
+                //Navigate to DotNet website
+                driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
+                //Click the Get Started button
+                // test url link if correct after click find element by id
+
+
+                driver.FindElement(By.Id("redirect")).Click();                
+                
+                Assert.AreEqual(driver.Url, "https://docs.microsoft.com/aspnet/core");
+    
+                
+            }
+        }
+
 
         private ChromeDriver GetDriver()
         {
