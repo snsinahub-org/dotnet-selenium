@@ -22,7 +22,7 @@ namespace ws.SeleniumTests
             Console.WriteLine("Setup");
             // Initialize ExtentReports
             extent = new ExtentReports();
-            var htmlReporter = new ExtentHtmlReporter("extent.html");
+            var htmlReporter = new ExtentHtmlReporter("/tmp/extent.html");
             extent.AttachReporter(htmlReporter);
 
         }
