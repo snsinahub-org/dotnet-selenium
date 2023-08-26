@@ -23,7 +23,7 @@ namespace ws.SeleniumTests
             // Initialize ExtentReports
             Directory.CreateDirectory("/tmp/results");
             
-            var htmlReporter = new ExtentHtmlReporter("/tmp/results");
+            var htmlReporter = new ExtentHtmlReporter("/tmp/results/cc.html");
             extent.AttachReporter(htmlReporter);
 
             
