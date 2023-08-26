@@ -36,6 +36,7 @@ jobs:
           dotnet test -s .runsettings
           ls -lthra 
           ls -lthra /tmp
+          tar -czvf test-results.tar.gz TestResults
           
       - name: build
         run: |
