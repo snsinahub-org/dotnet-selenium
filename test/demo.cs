@@ -42,7 +42,7 @@ namespace ws.SeleniumTests
             using (var driver = GetDriver())
             {
                 test = extent.CreateTest(TestContext.TestName);
-                extent.LogInfo("TestLink2");
+                // extent.LogInfo("TestLink2");
                 //Navigate to DotNet website
                 driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
                 //Click the Get Started button
@@ -75,7 +75,7 @@ namespace ws.SeleniumTests
             using (var driver = GetDriver())
             {
                 test = extent.CreateTest(TestContext.TestName);
-                extent.LogInfo("TestLink2");
+                // extent.LogInfo("TestLink2");
                 //Navigate to DotNet website
                 driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
                 //Click the Get Started button
