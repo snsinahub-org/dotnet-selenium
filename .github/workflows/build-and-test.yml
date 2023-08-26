@@ -33,7 +33,8 @@ jobs:
           curl -k https://localhost:7262/
           cd test
           dotnet test -s .runsettings
-          ls -lthra
+          ls -lthra 
+          ls -lthra /tmp
           
       - name: build
         run: |

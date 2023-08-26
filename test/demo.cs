@@ -16,7 +16,7 @@ namespace Demo.SeleniumTests
         private ExtentTest test;
 
         
-        [ClassInitialize]
+        [TestInitialize]
         public void Setup()
         {
             // Initialize ExtentReports
@@ -26,13 +26,9 @@ namespace Demo.SeleniumTests
 
         }
 
-        // run this method before each test
-        [TestInitialize]
-        public void BeforeTest()
-        {
-            // Start ExtentTest
-            test = extent.CreateTest(TestContext.TestName);
-        }
+        
+        
+        
 
         [TestMethod]
         public void TestLink1()
@@ -41,6 +37,7 @@ namespace Demo.SeleniumTests
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
             using (var driver = GetDriver())
             {
+                 test = extent.CreateTest(TestContext.TestName);
                 //Navigate to DotNet website
                 driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
                 //Click the Get Started button
@@ -64,6 +61,7 @@ namespace Demo.SeleniumTests
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
             using (var driver = GetDriver())
             {
+                 test = extent.CreateTest(TestContext.TestName);
                 //Navigate to DotNet website
                 driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
                 //Click the Get Started button
