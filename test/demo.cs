@@ -122,9 +122,9 @@ namespace ws.SeleniumTests
         }
 
         [TestCleanup]
-        public static void endReporting()
+        public void endReporting()
         {
-            
+            Console.WriteLine("TestCleanup");
             extent.Flush();
 
         }
