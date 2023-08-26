@@ -27,5 +27,7 @@
         
     
   </ItemGroup>
-
+  <Target Name="dlfkljd" AfterTargets="Build">  
+    <Message Text="Runtime ID = $(RuntimeIdentifier)" />   
+  </Target> 
 </Project>
