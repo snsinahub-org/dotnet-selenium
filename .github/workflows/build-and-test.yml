@@ -37,11 +37,17 @@ jobs:
           ls -lthra 
           ls -lthra /tmp
           tar -czvf test-results.tar.gz TestResults
-          
-      - name: build
-        run: |
-          dotnet restore
-          dotnet build --configuration Release
+          cp test-results.tar.gz ../
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results.tar.gz
+          path: test-results.tar.gz
+      
+      # - name: build
+      #   run: |
+      #     dotnet restore
+      #     dotnet build --configuration Release
 
   # build_and_deploy:
   #   runs-on: ubuntu-latest
