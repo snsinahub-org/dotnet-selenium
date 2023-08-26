@@ -44,8 +44,14 @@ jobs:
       - name: upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: test-results.tar.gz
-          path: results.tar.gz
+          name: tmp-results
+          path: /tmp/results
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Results
+          path: test-results.tar.gz
       
       # - name: build
       #   run: |
