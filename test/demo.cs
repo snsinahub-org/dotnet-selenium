@@ -166,7 +166,7 @@ namespace ws.SeleniumTests
         public void endReporting()
         {
             Console.WriteLine("TestCleanup");
-            extent.Flush();
+            // extent.Flush();
 
         }
     }
