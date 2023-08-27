@@ -83,8 +83,9 @@ namespace ws.SeleniumTests
         {
             // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
-            using (var driver = GetDriver())
-            {
+            // using (var driver = GetDriver())
+            // {
+                var driver = GetDriver()
                 test = extent.CreateTest(TestContext.TestName);
                 // extent.LogInfo("TestLink2");
                 //Navigate to DotNet website
@@ -98,7 +99,7 @@ namespace ws.SeleniumTests
                 Assert.AreNotEqual(cssMenu, "not-privacy");
     
                 
-            }
+            // }
         }
 
         
