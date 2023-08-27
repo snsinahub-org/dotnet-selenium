@@ -122,8 +122,20 @@ namespace ws.SeleniumTests
                 driver.FindElement(By.Id("redirect")).Click();        
                 // assert url is correct but do not fail test if not correct
 
+                // add a selenium soft assertion to verify url
 
-                Assert.AreEqual(driver.Url, "https://dotnet.microsoft.com/");      
+
+
+                // Assert.AreEqual(driver.Url, "https://dotnet.microsoft.com/");    
+
+                // check if driver.url is matching the expected url
+                // if not matching, add a soft assertion to the test
+                if (driver.Url != "https://dotnet.microsoft.com/")
+                {
+                    test.Log(Status.Warning, "URL is not matching the expected URL");
+                } else {
+                    test.Log(Status.Info, "URL is matching the expected URL");
+                }  
                 
                 
     
