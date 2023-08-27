@@ -9,7 +9,7 @@ using AventStack.ExtentReports.Reporter;
 namespace ws.SeleniumTests
 {
     [TestClass]
-    public class DotNetSiteTests
+    public class DotNetSiteTests2
     {
         public TestContext? TestContext { get; set; }
         public ExtentReports? extent;
