@@ -57,16 +57,15 @@ namespace ws.SeleniumTests
         {
             // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
+            test = extent.CreateTest(TestContext.TestName);
+            test.Log(Status.Info, "Navigate to DotNet website");
             using (var driver = GetDriver())
             {
-                test = extent.CreateTest(TestContext.TestName);
-                // 
-                // extent.LogInfo("TestLink2");
-                //Navigate to DotNet website
+                
                 driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
 
                 // add log from test
-                test.Log(Status.Info, "Navigate to DotNet website");
+                
                 //Click the Get Started button
                 driver.FindElement(By.LinkText("Privacy Policy")).Click();
                 var css = driver.FindElement(By.LinkText("Privacy Policy")).GetAttribute("class");
