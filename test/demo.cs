@@ -119,13 +119,13 @@ namespace ws.SeleniumTests
                 // test url link if correct after click find element by id
 
 
-                driver.FindElement(By.Id("redirect")).Click();                
+                driver.FindElement(By.Id("redirect")).Click();        
+                // assert url is correct but do not fail test if not correct
+
+
+                Assert.AreEqual(driver.Url, "https://dotnet.microsoft.com/");      
                 
-                if(Assert.AreEqual(driver.Url, "https://dotnet.microsoft.com/")) {
-                    test.Log(Status.Pass, "Test Passed");
-                } else {
-                    test.Log(Status.Fail, "Test Failed");
-                }
+                
     
                 
             }
