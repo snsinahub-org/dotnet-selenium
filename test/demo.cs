@@ -122,7 +122,7 @@ namespace ws.SeleniumTests
 
                 driver.FindElement(By.Id("redirect")).Click();                
                 
-                Assert.AreEqual(driver.Url, "https://docs.microsoft.com/aspnet/core");
+                Assert.AreEqual(driver.Url, "https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0");
     
                 
             }
