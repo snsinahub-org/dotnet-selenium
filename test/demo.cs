@@ -12,8 +12,9 @@ namespace ws.SeleniumTests
     public class DotNetSiteTests
     {
         public TestContext? TestContext { get; set; }
-        private ExtentReports? extent;
-        private ExtentTest test;
+        public ExtentReports? extent;
+        public ExtentTest test;
+
 
         
         [TestInitialize]
@@ -21,6 +22,8 @@ namespace ws.SeleniumTests
         {
             extent = new ExtentReports();
             Console.WriteLine("Setup");
+            
+
 
             // check if extent is null
             if (extent == null)
@@ -58,6 +61,9 @@ namespace ws.SeleniumTests
                 // extent.LogInfo("TestLink2");
                 //Navigate to DotNet website
                 driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
+
+                // add log from test
+                test.Log(Status.Info, "Navigate to DotNet website");
                 //Click the Get Started button
                 driver.FindElement(By.LinkText("Privacy Policy")).Click();
                 var css = driver.FindElement(By.LinkText("Privacy Policy")).GetAttribute("class");
@@ -132,7 +138,7 @@ namespace ws.SeleniumTests
                 //Click the Get Started button
                 // test url link if correct after click find element by id
 
-
+                test.Log(Status.Info, "Navigate to https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0");
                 driver.FindElement(By.Id("redirect")).Click();                
                 
                 Assert.AreEqual(driver.Url, "https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0");
