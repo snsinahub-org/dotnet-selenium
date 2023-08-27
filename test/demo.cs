@@ -26,7 +26,7 @@ namespace ws.SeleniumTests
             var htmlReporter = new ExtentHtmlReporter("/tmp/results/cc.html");
             extent.AttachReporter(htmlReporter);
 
-            test = extent.CreateTest(TestContext.TestName);
+            
             
         }
 
@@ -41,7 +41,8 @@ namespace ws.SeleniumTests
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
             using (var driver = GetDriver())
             {
-                // test = extent.CreateTest(TestContext.TestName);
+                test = extent.CreateTest("Link1");
+                // 
                 // extent.LogInfo("TestLink2");
                 //Navigate to DotNet website
                 driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
@@ -64,7 +65,7 @@ namespace ws.SeleniumTests
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
             using (var driver = GetDriver())
             {
-                // test = extent.CreateTest(TestContext.TestName);
+                test = extent.CreateTest("link2");
                 // extent.LogInfo("TestLink2");
                 //Navigate to DotNet website
                 driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
@@ -112,7 +113,7 @@ namespace ws.SeleniumTests
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
             using (var driver = GetDriver())
             {
-                // test = extent.CreateTest(TestContext.TestName);
+                test = extent.CreateTest(TestContext.TestName);
                 // extent.LogInfo("TestLink2");
                 //Navigate to DotNet website
                 driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);

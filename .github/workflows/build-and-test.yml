@@ -39,6 +39,9 @@ jobs:
           echo parent folder
           ls -lthra ../
 
+          echo results
+          ls -lthra /tmp/results
+          echo tree---------------
           tree 
 
           echo "tar file"
