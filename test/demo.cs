@@ -59,7 +59,7 @@ namespace ws.SeleniumTests
         {
             // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
-            test = extent.CreateTest(TestContext.TestName);
+            // test = extent.CreateTest(TestContext.TestName);
             test.Log(Status.Info, "Navigate to DotNet website");
             var driver = GetDriver();
             // using (var driver = GetDriver())
