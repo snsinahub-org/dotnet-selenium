@@ -14,6 +14,8 @@ namespace ws.SeleniumTests
         public TestContext? TestContext { get; set; }
         public ExtentReports? extent;
         public ExtentTest test;
+        public ChromeDriver driver;
+
 
 
         // create a method to initialize
@@ -59,8 +61,8 @@ namespace ws.SeleniumTests
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
             test = extent.CreateTest(TestContext.TestName);
             test.Log(Status.Info, "Navigate to DotNet website");
-            using (var driver = GetDriver())
-            {
+            // using (var driver = GetDriver())
+            // {
                 
                 driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
 
@@ -75,7 +77,7 @@ namespace ws.SeleniumTests
                 
                 Assert.AreEqual(css, "privacy");
                 
-            }
+            // }
         }
         
         [TestMethod]
@@ -109,8 +111,8 @@ namespace ws.SeleniumTests
         {
             // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
-            using (var driver = GetDriver())
-            {
+            // using (var driver = GetDriver())
+            // {
                 test = extent.CreateTest(TestContext.TestName);
                 // extent.LogInfo("TestLink2");
                 //Navigate to DotNet website
@@ -140,7 +142,7 @@ namespace ws.SeleniumTests
                 
     
                 
-            }
+            // }
         }
 
         [TestMethod]
@@ -148,8 +150,8 @@ namespace ws.SeleniumTests
         {
             // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
-            using (var driver = GetDriver())
-            {
+            // using (var driver = GetDriver())
+            // {
                 extent.CreateTest(TestContext.TestName);
                 // extent.LogInfo("TestLink2");
                 //Navigate to DotNet website
@@ -163,7 +165,7 @@ namespace ws.SeleniumTests
                 Assert.AreEqual(driver.Url, "https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0");
     
                 
-            }
+            // }
         }
 
 
@@ -192,6 +194,7 @@ namespace ws.SeleniumTests
         {
             Console.WriteLine("TestCleanup");
             extent.Flush();
+            driver.Quit();
 
         }
     }
