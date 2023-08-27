@@ -22,7 +22,7 @@ namespace ws.SeleniumTests
         [TestInitialize]
         public void Setup()
         {
-            extent = new ExtentReports();
+            // extent = new ExtentReports();
             Console.WriteLine("Setup");
             
 
@@ -30,6 +30,7 @@ namespace ws.SeleniumTests
             // check if extent is null
             if (extent == null)
             {
+                extent = new ExtentReports();
                 Console.WriteLine("extent is null");
             }
             else
