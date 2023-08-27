@@ -16,7 +16,7 @@ namespace ws.SeleniumTests
         private ExtentTest? test;
 
         
-        [TestInitialize]
+        [classinitialize]
         public void Setup()
         {
             Console.WriteLine("Setup");
