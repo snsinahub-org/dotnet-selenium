@@ -16,7 +16,9 @@ namespace ws.SeleniumTests
         public ExtentTest test;
 
 
+        // create a method to initialize
         
+
         [TestInitialize]
         public void Setup()
         {
@@ -101,28 +103,32 @@ namespace ws.SeleniumTests
 
         
 
-        // [TestMethod]
-        // public void TestLink4()
-        // {
-        //     // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
-        //     // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
-        //     using (var driver = GetDriver())
-        //     {
-        //         test = extent.CreateTest(TestContext.TestName);
-        //         // extent.LogInfo("TestLink2");
-        //         //Navigate to DotNet website
-        //         driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
-        //         //Click the Get Started button
-        //         // test url link if correct after click find element by id
+        [TestMethod]
+        public void TestLink4()
+        {
+            // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
+            // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
+            using (var driver = GetDriver())
+            {
+                test = extent.CreateTest(TestContext.TestName);
+                // extent.LogInfo("TestLink2");
+                //Navigate to DotNet website
+                driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
+                //Click the Get Started button
+                // test url link if correct after click find element by id
 
 
-        //         driver.FindElement(By.Id("redirect")).Click();                
+                driver.FindElement(By.Id("redirect")).Click();                
                 
-        //         Assert.AreEqual(driver.Url, "https://dotnet.microsoft.com/");
+                if(Assert.AreEqual(driver.Url, "https://dotnet.microsoft.com/")) {
+                    test.Log(Status.Pass, "Test Passed");
+                } else {
+                    test.Log(Status.Fail, "Test Failed");
+                }
     
                 
-        //     }
-        // }
+            }
+        }
 
         [TestMethod]
         public void TestLink5()
