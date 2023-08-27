@@ -59,7 +59,7 @@ namespace ws.SeleniumTests
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
             using (var driver = GetDriver())
             {
-                extent.CreateTest(TestContext.TestName);
+                test = extent.CreateTest(TestContext.TestName);
                 // 
                 // extent.LogInfo("TestLink2");
                 //Navigate to DotNet website
@@ -86,7 +86,7 @@ namespace ws.SeleniumTests
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
             using (var driver = GetDriver())
             {
-                extent.CreateTest(TestContext.TestName);
+                test = extent.CreateTest(TestContext.TestName);
                 // extent.LogInfo("TestLink2");
                 //Navigate to DotNet website
                 driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
