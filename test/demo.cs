@@ -46,7 +46,7 @@ namespace ws.SeleniumTests
             var htmlReporter = new ExtentHtmlReporter("/tmp/results/cc.html");
             extent.AttachReporter(htmlReporter);
             test = extent.CreateTest("Demo");
-            
+            driver = GetDriver();
             
         }
 
