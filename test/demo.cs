@@ -12,14 +12,26 @@ namespace ws.SeleniumTests
     public class DotNetSiteTests
     {
         public TestContext? TestContext { get; set; }
-        private ExtentReports? extent = new ExtentReports();
+        private ExtentReports? extent;
         private ExtentTest? test;
 
         
         [TestInitialize]
         public void Setup()
         {
+            extent = new ExtentReports()
             Console.WriteLine("Setup");
+
+            // check if extent is null
+            if (extent == null)
+            {
+                Console.WriteLine("extent is null");
+            }
+            else
+            {
+                Console.WriteLine("extent is not null");
+            }
+
             // Initialize ExtentReports
             Directory.CreateDirectory("/tmp/results");
             
