@@ -194,7 +194,7 @@ namespace ws.SeleniumTests
         {
             Console.WriteLine("TestCleanup");
             extent.Flush();
-            driver.Quit();
+            // driver.Quit();
 
         }
     }
